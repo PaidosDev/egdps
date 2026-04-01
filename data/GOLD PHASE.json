@@ -9,7 +9,9 @@
     "password": "Undefined",
     "records": [
         {
-            
+            "user": "Tester"
+            "percent": 100
+            "hz": 432
         }
     ]
 }
