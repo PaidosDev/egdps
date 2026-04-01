@@ -10,6 +10,7 @@
     "records": [
         {
             "user": "Tester",
+            "link": "NOPE",
             "percent": 100,
             "hz": 432
         }
