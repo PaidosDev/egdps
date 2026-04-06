@@ -1,0 +1,11 @@
+{
+    "id": 333,
+    "name": "Denudaemon",
+    "author": "SpiderBGG",
+    "creators": ["SpiderBGG"],
+    "verifier": "molly",
+    "verification": "#",
+    "percentToQualify": 50,
+    "password": "Free To Copy", 
+    "records": []
+}
