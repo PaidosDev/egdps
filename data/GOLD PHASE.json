@@ -7,5 +7,12 @@
     "verification": "#",
     "percentToQualify": 50,
     "password": "Free To Copy",
-    "records": []
+    "records": [
+        {
+            "user": "molly [pending ahh]",
+            "link": "#",
+            "percent": 100,
+            "hz": 60
+        }
+    ]  
 }
