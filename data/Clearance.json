@@ -9,11 +9,10 @@
         "password": "Free To Copy",
         "records": [
             {
-            "user": "molly",
+            "user": "molly [Pending]",
             "link": "#",
             "percent": 100,
-            "hz": 60,
-            "status": "pending"
+            "hz": 60
             }
         ]
 }
