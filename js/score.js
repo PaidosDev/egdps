@@ -11,27 +11,39 @@ const scale = 1;
  * @returns {Number}
  */
 export function score(rank, percent, minPercent) {
-    // Cutoff at x levels
-    if (rank > 15 || rank < 1) {
+    // Configuration
+    const maxPoints = 10; // dont edit this bro this is my setting buffoon
+    const floorPoints = 1; // 1 cus it's the min point buffoon
+    const floorRank = 15; // How many levels rn you buffoon
+
+    // If rank is below the floor or invalid, return 0
+    if (rank > floorRank || rank < 1) {
         return 0;
     }
 
-    // Exponential Formula: 15 * e^(-0.3009 * (rank - 1))
-    let baseScore = 15 * Math.exp(-0.3009 * (rank - 1));
+    const b = Math.log(floorPoints / maxPoints) / (floorRank - 1);
+    const baseScore = maxPoints * Math.exp(b * (rank - 1));
 
-    // Calculate progression based on percentage
-    let score = baseScore * ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
+    // Apply percentage scaling (how much of the level was completed)
+    let finalScore = baseScore * ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
 
-    score = Math.max(0, score);
+    // Ensure score doesn't dip below 0
+    finalScore = Math.max(0, finalScore);
 
-    // Apply the "uncompleted" penalty (1/3 reduction)
-    if (percent != 100) {
-        return round(score - score / 3);
+    // Apply penalty: If not 100% completion, reduce score by 1/3
+    if (percent !== 100) {
+        return round(finalScore - (finalScore / 3));
     }
 
-    return Math.max(round(score), 0);
+    return Math.max(round(finalScore), 0);
 }
 
+/**
+ * Rounds a number to the defined scale using scientific notation 
+ * to avoid floating point errors.
+ * @param {Number} num 
+ * @returns {Number}
+ */
 export function round(num) {
     if (!('' + num).includes('e')) {
         return +(Math.round(num + 'e+' + scale) + 'e-' + scale);
